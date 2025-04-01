@@ -1,0 +1,31 @@
+{
+  "name": "men-stack-crud-app-lab",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macfarley/men-stack-crud-app-lab.git"
+  },
+  "keywords": [
+    "CRUD",
+    "Lab"
+  ],
+  "author": "macfarley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macfarley/men-stack-crud-app-lab/issues"
+  },
+  "homepage": "https://github.com/macfarley/men-stack-crud-app-lab#readme",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.13.1",
+    "morgan": "^1.10.0"
+  }
+}

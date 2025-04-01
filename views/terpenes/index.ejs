@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terpenes Index</title>
+  </head>
+  <body>
+    <h1>All Terpenes</h1>
+    <ul>
+      <% terpenes.forEach(terpene => { %>
+        <li>
+          <a href="/terpenes/<%= terpene._id %>"> <%= terpene.name %> </a>
+        </li>
+      <% }); %>
+    </ul>
+    <a href="/terpenes/new"> Add A New Terpene</a>
+  </body>
+</html>

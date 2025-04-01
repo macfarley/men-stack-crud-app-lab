@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= terpene.name %></title> <!-- Dynamic title based on terpene name -->
+  </head>
+  <body>
+    <h1><%= terpene.name %></h1>
+    <h2>Also known as <span> <%=  %> </span></h2>
+    <fieldset>
+      <legend>Aromatics</legend>
+      <ul>
+        <% terpene.aromatics.forEach(function(scent) { %>
+          <li><%= scent %></li>
+        <% }); %>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>Health Benefits</legend>
+      <ul>
+        <% terpene.effects.forEach(function(effect) { %>
+          <li><%= effect %></li>
+        <% }); %>
+      </ul>
+    </fieldset>
+    <fieldset>
+      <legend>Found In Strains</legend>
+      <ul>
+        <% terpene.foundIn.forEach(function(strain) { %>
+          <li><%= strain %></li>
+        <% }); %>
+      </ul>
+    </fieldset>
+    <form action="/terpenes/<%= terpene._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete <%= terpene.name %></button>
+    </form>
+    <a href="/terpenes/">Back to Terpenes</a>
+    <a href="/terpenes/new"> Add A New Terpene</a>
+
+  </body>
+</html>

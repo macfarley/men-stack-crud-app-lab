@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Terpene</title>
+  </head>
+  <body>
+    <h1>Create a New Terpene</h1>
+    <form action="/terpenes" method="POST">
+      <label for="name">Common Name:</label>
+      <input type="text" id="name" name="name" required />
+      <label for="science">Also Known as:</label>
+      <input type="text" id="science" name="science" />
+      <label for="strains">Found in strain: </label>
+      <input type="text" id="strains" name="strains" />
+      <fieldset>
+        <legend>Aromatics:</legend>
+        <label>
+          <input type="checkbox" name="aromatics" value="citrus" /> Citrus
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="earth" /> Earth
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="floral" /> Floral
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="metallic" /> Metallic
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="mint" /> Mint
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="musk" /> Musk
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="pine" /> Pine
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="spicy" /> Spicy
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="wood" /> Wood
+        </label>
+        </fieldset>
+      <fieldset>
+        <legend>Health Benefits:</legend>
+        <label>
+        <input type="checkbox" name="healthBenefits" value="anti-anxiety" /> Anti-anxiety
+          </label>
+        <label>
+        <input type="checkbox" name="healthBenefits" value="anti-bacterial" /> Anti-bacterial
+          </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="anti-depressant" /> Anti-depressant
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="anti-fungal" /> Anti-fungal
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="anti-inflammatory" /> Anti-inflammatory
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="antioxidant" /> Antioxidant
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="appetite suppressant" /> Appetite Suppressant
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="bronchial dilator" /> Bronchial Dilator
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="digestion" /> Digestion
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="mood elevation" /> Mood Elevation
+    </label>
+    <label>
+      <input type="checkbox" name="healthBenefits" value="pain relief" /> Pain Relief
+    </label>
+        </fieldset>
+      <button type="submit">Add Terpene</button>
+    </form>
+    <a href="/terpenes/">Back to List</a>
+
+  </body>
+  
+</html>
