@@ -7,7 +7,91 @@
   </head>
   <body>
     <h1>Add new information</h1>
+
     <form action="/terpenes/update/<%= terpene._id %>?_method=PUT" method="POST">
+      <h2><%= terpene.name %></h2>
+      <input type='hidden' name="_method" value="PUT">
+    
+      <label for="aka">Also Known as:</label>
+      <input type="text" id="aka" name="aka" value="<%= terpene.aka %>" />
+    
+      <label for="strains">Found in strain: </label>
+      <input type="text" id="foundIn" name="foundIn" value="<%= terpene.foundIn %>" />
+    
+      <fieldset>
+        <legend>Aromatics:</legend>
+        <% const aromatics = terpene.aromatics || []; %>
+        <label>
+          <input type="checkbox" name="aromatics" value="citrus" <%= aromatics.includes('citrus') ? 'checked' : '' %> /> Citrus
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="earth" <%= aromatics.includes('earth') ? 'checked' : '' %> /> Earth
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="floral" <%= aromatics.includes('floral') ? 'checked' : '' %> /> Floral
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="metallic" <%= aromatics.includes('metallic') ? 'checked' : '' %> /> Metallic
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="mint" <%= aromatics.includes('mint') ? 'checked' : '' %> /> Mint
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="musk" <%= aromatics.includes('musk') ? 'checked' : '' %> /> Musk
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="pine" <%= aromatics.includes('pine') ? 'checked' : '' %> /> Pine
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="spicy" <%= aromatics.includes('spicy') ? 'checked' : '' %> /> Spicy
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="wood" <%= aromatics.includes('wood') ? 'checked' : '' %> /> Wood
+        </label>
+      </fieldset>
+    
+      <fieldset>
+        <legend>Health Benefits:</legend>
+        <% const effects = terpene.effects || []; %>
+        <label>
+          <input type="checkbox" name="effects" value="anti-anxiety" <%= effects.includes('anti-anxiety') ? 'checked' : '' %> /> Anti-anxiety
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-bacterial" <%= effects.includes('anti-bacterial') ? 'checked' : '' %> /> Anti-bacterial
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-depressant" <%= effects.includes('anti-depressant') ? 'checked' : '' %> /> Anti-depressant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-fungal" <%= effects.includes('anti-fungal') ? 'checked' : '' %> /> Anti-fungal
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-inflammatory" <%= effects.includes('anti-inflammatory') ? 'checked' : '' %> /> Anti-inflammatory
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="antioxidant" <%= effects.includes('antioxidant') ? 'checked' : '' %> /> Antioxidant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="appetite suppressant" <%= effects.includes('appetite suppressant') ? 'checked' : '' %> /> Appetite Suppressant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="bronchial dilator" <%= effects.includes('bronchial dilator') ? 'checked' : '' %> /> Bronchial Dilator
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="digestion" <%= effects.includes('digestion') ? 'checked' : '' %> /> Digestion
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="mood elevation" <%= effects.includes('mood elevation') ? 'checked' : '' %> /> Mood Elevation
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="pain relief" <%= effects.includes('pain relief') ? 'checked' : '' %> /> Pain Relief
+        </label>
+      </fieldset>
+    
+      <button type="submit">Update Terpene</button>
+    </form>
+    <a href="/terpenes/">Back to List</a>
+    <!-- <form action="/terpenes/update/<%= terpene._id %>?_method=PUT" method="POST">
       <h2><%= terpene.name %></h2>
       <input type='hidden' name="_method" value="PUT">
       <label for="aka">Also Known as:</label>
@@ -49,42 +133,42 @@
       <fieldset>
         <legend>Health Benefits:</legend>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-anxiety" /> Anti-anxiety
+        <input type="checkbox" name="effects" value="anti-anxiety" /> Anti-anxiety
           </label>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-bacterial" /> Anti-bacterial
+        <input type="checkbox" name="effects" value="anti-bacterial" /> Anti-bacterial
           </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-depressant" /> Anti-depressant
+      <input type="checkbox" name="effects" value="anti-depressant" /> Anti-depressant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-fungal" /> Anti-fungal
+      <input type="checkbox" name="effects" value="anti-fungal" /> Anti-fungal
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-inflammatory" /> Anti-inflammatory
+      <input type="checkbox" name="effects" value="anti-inflammatory" /> Anti-inflammatory
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="antioxidant" /> Antioxidant
+      <input type="checkbox" name="effects" value="antioxidant" /> Antioxidant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="appetite suppressant" /> Appetite Suppressant
+      <input type="checkbox" name="effects" value="appetite suppressant" /> Appetite Suppressant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="bronchial dilator" /> Bronchial Dilator
+      <input type="checkbox" name="effects" value="bronchial dilator" /> Bronchial Dilator
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="digestion" /> Digestion
+      <input type="checkbox" name="effects" value="digestion" /> Digestion
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="mood elevation" /> Mood Elevation
+      <input type="checkbox" name="effects" value="mood elevation" /> Mood Elevation
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="pain relief" /> Pain Relief
+      <input type="checkbox" name="effects" value="pain relief" /> Pain Relief
     </label>
         </fieldset>
       <button type="submit">Update Terpene</button>
-    </form>
-    <a href="/terpenes/">Back to List</a>
+    </form> -->
+    <!-- <a href="/terpenes/">Back to List</a> -->
 
   </body>
   

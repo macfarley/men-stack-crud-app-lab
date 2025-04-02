@@ -5,9 +5,9 @@ const mongoose = require("mongoose");
 const terpeneSchema = new mongoose.Schema({
     name: String,
     aka: String,
-    aromatics: [],
-    effects: [],
-    foundIn: []
+    aromatics: [String],
+    effects: [String],
+    foundIn: [String]
   });
 
 const Terpene = mongoose.model("Terpene", terpeneSchema); // create model
