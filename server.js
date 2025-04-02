@@ -65,31 +65,53 @@ app.get('/terpenes/update/:terpeneId', async (req, res) => {
   const foundTerpene = await Terpene.findById(req.params.terpeneId);
   res.render('terpenes/update.ejs', {terpene: foundTerpene})
 })
-//they click an update button, and it brings you to an update page
-//then when they submit, it adds to the existing entry
-app.put('/terpenes/update/:terpeneId', async (req, res) => {
-  const { name, science, aromatics, effects } = req.body;
-  console.log(req.body)
-  try {await Terpene.findByIdAndUpdate(req.params.terpeneId, {aka: req.body.aka,  $push: {foundIn: req.params.foundIn}}, { new: true })
-  .then(updatedUser => {
-    if (updatedUser) {
-      console.log('User updated successfully:', updatedUser);
-    } else {
-      console.log('User not found');
-    }
-  })
-  .catch(error => {
-    console.error('Error updating user:', error);
-  });
-}
-  
-  catch(err){
-    console.log(err)
+// route to remove an entry entirely=Delete
+app.delete('/terpenes/:terpeneId', async (req, res) => {
+  try {
+    await Terpene.findByIdAndDelete(req.params.terpeneId);
+    res.redirect('/terpenes');
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error deleting Terpene");
   }
-  // res.send('test')
-  
-  res.redirect(`/terpenes/show/${req.params.terpeneId}`)
+});
+//they click an update link, and it brings you to an update page
+//then when they submit, it adds to the existing entry =Update
+app.put('/terpenes/update/:terpeneId', async (req, res) => {
+  try {
+    const { name, science, aromatics, effects, strains } = req.body;
+    const foundTerpene = await Terpene.findById(req.params.terpeneId);
 
+    if (!foundTerpene) {
+      return res.status(404).send("Terpene not found");
+    }
+
+    // Update fields only if they don't already include the new data
+    if (science && foundTerpene.aka !== science) {
+      foundTerpene.aka = science;
+    }
+    if (aromatics) {
+      const aromaticsArray = Array.isArray(aromatics) ? aromatics : [aromatics];
+      foundTerpene.aromatics = [...new Set([...foundTerpene.aromatics, ...aromaticsArray])];
+    }
+    if (effects) {
+      const effectsArray = Array.isArray(effects) ? effects : [effects];
+      foundTerpene.effects = [...new Set([...foundTerpene.effects, ...effectsArray])];
+    }
+    if (strains) {
+      const strainsArray = Array.isArray(strains) ? strains : [strains];
+      foundTerpene.foundIn = [...new Set([...foundTerpene.foundIn, ...strainsArray])];
+    }
+
+    // Save the updated Terpene to the database
+    await foundTerpene.save();
+
+    // Redirect to the terpene's detail page
+    res.redirect(`/terpenes/show/${req.params.terpeneId}`);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Error updating Terpene");
+  }
 });  
 
  // Connect to MongoDB using the connection string in the .env file

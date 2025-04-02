@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 
 const terpeneSchema = new mongoose.Schema({
     name: String,
-    aka: String,
     aromatics: [],
     effects: [],
     foundIn: []
