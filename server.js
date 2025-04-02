@@ -15,6 +15,7 @@ const app = express();
 app.use(methodOverride("_method"));
 // middleware logging tool
 app.use(morgan("dev"));
+app.use(express.urlencoded({ extended: false }));
 
 // RESTful Routes
 // Landing page =Read
@@ -30,11 +31,16 @@ app.get("/terpenes", async (req, res) => {
 app.get("/terpenes/new", (req, res) => {
     res.render("terpenes/new.ejs");
   });
+//look at a single terpene page =Read
+app.get('/terpenes/show/:terpeneId', async (req, res) =>{
+  const foundTerpene = await Terpene.findById(req.params.terpeneId);
+  res.render('terpenes/show.ejs', {terpene: foundTerpene})
+})
 //post route= Create
 app.post("/terpenes", async (req, res) => {
-    try {
+ try {
         const { name, science, aromatics, effects } = req.body;
-
+        console.log(req.body)
         // Create a new Terpene document
         const newTerpene = new Terpene({
             name: name,
@@ -54,6 +60,37 @@ app.post("/terpenes", async (req, res) => {
         res.status(500).send("Error creating new Terpene");
     }
 });
+// route to update a terpene with new information
+app.get('/terpenes/update/:terpeneId', async (req, res) => {
+  const foundTerpene = await Terpene.findById(req.params.terpeneId);
+  res.render('terpenes/update.ejs', {terpene: foundTerpene})
+})
+//they click an update button, and it brings you to an update page
+//then when they submit, it adds to the existing entry
+app.put('/terpenes/update/:terpeneId', async (req, res) => {
+  const { name, science, aromatics, effects } = req.body;
+  console.log(req.body)
+  try {await Terpene.findByIdAndUpdate(req.params.terpeneId, {aka: req.body.aka,  $push: {foundIn: req.params.foundIn}}, { new: true })
+  .then(updatedUser => {
+    if (updatedUser) {
+      console.log('User updated successfully:', updatedUser);
+    } else {
+      console.log('User not found');
+    }
+  })
+  .catch(error => {
+    console.error('Error updating user:', error);
+  });
+}
+  
+  catch(err){
+    console.log(err)
+  }
+  // res.send('test')
+  
+  res.redirect(`/terpenes/show/${req.params.terpeneId}`)
+
+});  
 
  // Connect to MongoDB using the connection string in the .env file
  mongoose.connect(process.env.MONGODB_URI);

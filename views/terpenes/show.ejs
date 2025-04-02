@@ -7,7 +7,13 @@
   </head>
   <body>
     <h1><%= terpene.name %></h1>
-    <h2>Also known as <span> <%=  %> </span></h2>
+    <h2>Also known as: 
+      <% if(terpene.aka){ %>
+        <span><%= terpene.aka %></span>
+      <% } else{ %>
+        <span>n/a</span>
+      <% } %>
+    </h2>
     <fieldset>
       <legend>Aromatics</legend>
       <ul>
@@ -37,6 +43,6 @@
     </form>
     <a href="/terpenes/">Back to Terpenes</a>
     <a href="/terpenes/new"> Add A New Terpene</a>
-
+    <a href="/terpenes/update/<%=terpene._id %>">Update this entry</a>
   </body>
 </html>

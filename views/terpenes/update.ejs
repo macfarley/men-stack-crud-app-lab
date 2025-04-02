@@ -3,19 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>New Terpene</title>
+    <title>Update Terpene <%= terpene.name %></title>
   </head>
   <body>
-    <h1>Create a New Terpene</h1>
-    <form action="/terpenes" method="POST">
-      <label for="name">Common Name:</label>
-      <input type="text" id="name" name="name" required />
-      
-      <label for="science">Also Known as:</label>
-      <input type="text" id="science" name="science" />
+    <h1>Add new information</h1>
+    <form action="/terpenes/update/<%= terpene._id %>?_method=PUT" method="POST">
+      <h2><%= terpene.name %></h2>
+      <input type='hidden' name="_method" value="PUT">
+      <label for="aka">Also Known as:</label>
+      <input type="text" id="aka" name="aka" />
       
       <label for="strains">Found in strain: </label>
-      <input type="text" id="strains" name="strains" />
+      <input type="text" id="foundIn" name="foundIn" />
       
       <fieldset>
         <legend>Aromatics:</legend>
@@ -83,7 +82,7 @@
       <input type="checkbox" name="healthBenefits" value="pain relief" /> Pain Relief
     </label>
         </fieldset>
-      <button type="submit">Add Terpene</button>
+      <button type="submit">Update Terpene</button>
     </form>
     <a href="/terpenes/">Back to List</a>
 
