@@ -39,15 +39,15 @@ app.get('/terpenes/show/:terpeneId', async (req, res) =>{
 //post route= Create
 app.post("/terpenes", async (req, res) => {
  try {
-        const { name, science, aromatics, effects } = req.body;
+        const { name, aka, aromatics, effects } = req.body;
         console.log(req.body)
         // Create a new Terpene document
         const newTerpene = new Terpene({
             name: name,
-            aka: science,
+            aka: aka,
             aromatics: Array.isArray(aromatics) ? aromatics : [aromatics],
             effects: Array.isArray(effects) ? effects : [effects],
-            foundIn: Array.isArray(req.body.strains) ? req.body.strains : [req.body.strains],
+            foundIn: Array.isArray(req.body.foundIn) ? req.body.foundIn : [req.body.foundIn],
         });
 
         // Save the new Terpene to the database
@@ -79,7 +79,7 @@ app.delete('/terpenes/:terpeneId', async (req, res) => {
 //then when they submit, it adds to the existing entry =Update
 app.put('/terpenes/update/:terpeneId', async (req, res) => {
   try {
-    const { name, science, aromatics, effects, strains } = req.body;
+    const { name, aka, aromatics, effects, foundIn } = req.body;
     const foundTerpene = await Terpene.findById(req.params.terpeneId);
 
     if (!foundTerpene) {
@@ -87,8 +87,8 @@ app.put('/terpenes/update/:terpeneId', async (req, res) => {
     }
 
     // Update fields only if they don't already include the new data
-    if (science && foundTerpene.aka !== science) {
-      foundTerpene.aka = science;
+    if (aka && foundTerpene.aka !== aka) {
+      foundTerpene.aka = aka;
     }
     if (aromatics) {
       const aromaticsArray = Array.isArray(aromatics) ? aromatics : [aromatics];
@@ -98,9 +98,9 @@ app.put('/terpenes/update/:terpeneId', async (req, res) => {
       const effectsArray = Array.isArray(effects) ? effects : [effects];
       foundTerpene.effects = [...new Set([...foundTerpene.effects, ...effectsArray])];
     }
-    if (strains) {
-      const strainsArray = Array.isArray(strains) ? strains : [strains];
-      foundTerpene.foundIn = [...new Set([...foundTerpene.foundIn, ...strainsArray])];
+    if (foundIn) {
+      const foundInArray = Array.isArray(foundIn) ? foundIn : [foundIn];
+      foundTerpene.foundIn = [...new Set([...foundTerpene.foundIn, ...foundInArray])];
     }
 
     // Save the updated Terpene to the database

@@ -25,16 +25,16 @@
     <fieldset>
       <legend>Health Benefits</legend>
       <ul>
-        <% terpene.effects.forEach(function(effect) { %>
-          <li><%= effect %></li>
-        <% }); %>
+      <% terpene.effects.forEach(function(effect) { %>
+        <li><%= effect %></li>
+      <% }); %>
       </ul>
     </fieldset>
     <fieldset>
       <legend>Found In</legend>
       <ul>
-        <% terpene.foundIn.forEach(function() { %>
-          <li><%= strain %></li>
+        <% terpene.foundIn.forEach(function(foundIn) { %>
+          <li><%= foundIn %></li>
         <% }); %>
       </ul>
     </fieldset>

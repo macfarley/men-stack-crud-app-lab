@@ -11,8 +11,8 @@
       <label for="name">Common Name:</label>
       <input type="text" id="name" name="name" required />
       
-      <label for="foundIn">Found in strain: </label>
-      <input type="text" id="foundIn" name="foundIn" />
+      <label for="foundIn">Found in: </label>
+      <input type="text" id="foundIn" name="foundIn" maxlength="30"/>
       
       <fieldset>
         <legend>Aromatics:</legend>
@@ -24,6 +24,9 @@
         </label>
         <label>
           <input type="checkbox" name="aromatics" value="floral" /> Floral
+        </label>
+        <label>
+          <input type="checkbox" name="aromatics" value="herbal" /> Herbal
         </label>
         <label>
           <input type="checkbox" name="aromatics" value="metallic" /> Metallic
@@ -41,45 +44,63 @@
           <input type="checkbox" name="aromatics" value="spicy" /> Spicy
         </label>
         <label>
+          <input type="checkbox" name="aromatics" value="sweet" /> Sweet
+        </label>
+        <label>
           <input type="checkbox" name="aromatics" value="wood" /> Wood
         </label>
-        </fieldset>
+      </fieldset>
       <fieldset>
         <legend>Health Benefits:</legend>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-anxiety" /> Anti-anxiety
-          </label>
+          <input type="checkbox" name="effects" value="alertness" /> Alertness
+        </label>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-bacterial" /> Anti-bacterial
-          </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="anti-depressant" /> Anti-depressant
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="anti-fungal" /> Anti-fungal
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="anti-inflammatory" /> Anti-inflammatory
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="antioxidant" /> Antioxidant
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="appetite suppressant" /> Appetite Suppressant
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="bronchial dilator" /> Bronchial Dilator
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="digestion" /> Digestion
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="mood elevation" /> Mood Elevation
-    </label>
-    <label>
-      <input type="checkbox" name="healthBenefits" value="pain relief" /> Pain Relief
-    </label>
-        </fieldset>
+          <input type="checkbox" name="effects" value="anti-anxiety" /> Anti-anxiety
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-bacterial" /> Anti-bacterial
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-depressant" /> Anti-depressant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-fungal" /> Anti-fungal
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="anti-inflammatory" /> Anti-inflammatory
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="antioxidant" /> Antioxidant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="appetite suppressant" /> Appetite Suppressant
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="bronchial dilator" /> Bronchial Dilator
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="digestion" /> Digestion
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="insomnia" /> Insomnia
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="memory" /> Memory
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="mood elevation" /> Mood Elevation
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="muscle spasms" /> Muscle Spasms
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="pain relief" /> Pain Relief
+        </label>
+        <label>
+          <input type="checkbox" name="effects" value="relaxation" /> Relaxation
+        </label>
+      </fieldset>
       <button type="submit">Add Terpene</button>
     </form>
     <a href="/terpenes/">Back to List</a>

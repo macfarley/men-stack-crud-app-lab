@@ -11,9 +11,9 @@
       <h2><%= terpene.name %></h2>
       <input type='hidden' name="_method" value="PUT">
       <label for="aka">Also Known as:</label>
-      <input type="text" id="aka" name="aka" />
+      <input type="text" id="aka" name="aka" maxlength="30" />
       
-      <label for="strains">Found in strain: </label>
+      <label for="foundIn">Found in: </label>
       <input type="text" id="foundIn" name="foundIn" />
       
       <fieldset>
@@ -49,37 +49,37 @@
       <fieldset>
         <legend>Health Benefits:</legend>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-anxiety" /> Anti-anxiety
+        <input type="checkbox" name="effects" value="anti-anxiety" /> Anti-anxiety
           </label>
         <label>
-        <input type="checkbox" name="healthBenefits" value="anti-bacterial" /> Anti-bacterial
+        <input type="checkbox" name="effects" value="anti-bacterial" /> Anti-bacterial
           </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-depressant" /> Anti-depressant
+      <input type="checkbox" name="effects" value="anti-depressant" /> Anti-depressant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-fungal" /> Anti-fungal
+      <input type="checkbox" name="effects" value="anti-fungal" /> Anti-fungal
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="anti-inflammatory" /> Anti-inflammatory
+      <input type="checkbox" name="effects" value="anti-inflammatory" /> Anti-inflammatory
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="antioxidant" /> Antioxidant
+      <input type="checkbox" name="effects" value="antioxidant" /> Antioxidant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="appetite suppressant" /> Appetite Suppressant
+      <input type="checkbox" name="effects" value="appetite suppressant" /> Appetite Suppressant
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="bronchial dilator" /> Bronchial Dilator
+      <input type="checkbox" name="effects" value="bronchial dilator" /> Bronchial Dilator
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="digestion" /> Digestion
+      <input type="checkbox" name="effects" value="digestion" /> Digestion
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="mood elevation" /> Mood Elevation
+      <input type="checkbox" name="effects" value="mood elevation" /> Mood Elevation
     </label>
     <label>
-      <input type="checkbox" name="healthBenefits" value="pain relief" /> Pain Relief
+      <input type="checkbox" name="effects" value="pain relief" /> Pain Relief
     </label>
         </fieldset>
       <button type="submit">Update Terpene</button>
